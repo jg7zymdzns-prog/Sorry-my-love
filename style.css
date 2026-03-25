@@ -15,7 +15,7 @@ body {
 .letter {
   font-size: 4rem;
   color: #fff;
-  opacity: 0;
+  opacity: 1;
   text-shadow: 0 0 10px #f0f;
   transition: all 0.3s ease-in-out;
 }
