@@ -6,13 +6,11 @@ const el = {
   u: document.getElementById("u"),
   y: document.getElementById("y"),
   ou: document.getElementById("ou"),
-  you: document.getElementById("you"),
-  ;
+  you: document.getElementById("you")
+};
 
 function crtLoveTL() {
   const move = 1000;
-  const easing = "sin.inOut";
-  const easingBoom = "sin.in";
   const delta = 150;
 
   return new mojs.Timeline().add([
@@ -20,22 +18,17 @@ function crtLoveTL() {
       duration: move,
       onUpdate: (progress) => {
         [el.l, el.o, el.v, el.e, el.u, el.y, el.ou, el.you].forEach((char, i) => {
-          if (progress >= (i * delta) / move) {
-            char.style.opacity = 1;
+          if (char) {
+            if (progress >= (i * delta) / move) {
+              char.style.opacity = 1;
+            }
           }
         });
-      },
-      onComplete: () => {
-        [el.l, el.o, el.v, el.e, el.u, el.y, el.ou, el.you].forEach(elm => {
-          elm.style.opacity = 0;
-        });
-      
       }
     })
   ]);
 }
 
-// Trigger animation on page load
 window.onload = () => {
   crtLoveTL().play();
 };
